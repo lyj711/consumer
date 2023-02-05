@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MathModule } from './math/math.module';
+import { RmqModule } from './rmq/rmq.module';
+import { RmqService } from './rmq/rmq.service';
 
 @Module({
-  imports: [MathModule],
+  imports: [RmqModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,ConfigService, RmqService],
 })
 export class AppModule {}
